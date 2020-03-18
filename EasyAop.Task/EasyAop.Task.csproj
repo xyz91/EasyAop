@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net40;net45;net46;net472;netstandard2.0</TargetFrameworks>
+    <UserSecretsId>ae5d8aee-fa52-492c-adde-f64eac760be2</UserSecretsId>
+    <Version>1.0.8</Version>
+    <Authors>sorvy</Authors>
+    <Company>sorvy</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Build.Utilities.Core">
+      <Version>[15.7.179,]</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <PackageReference Include="Microsoft.Build.Utilities.Core">
+      <Version>14.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+    <PackageReference Include="Microsoft.Build.Utilities.Core">
+      <Version>[15.1.548,15.9.20]</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="Microsoft.Build.Utilities.Core">
+      <Version>[16.0.461,]</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EasyAop" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build\*\*" Pack="True" PackagePath="build" />
+    <None Include="buildMultiTargeting\*\*" Pack="True" PackagePath="buildMultiTargeting" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+.git/
+.vs/
+obj
+bin
+packages
+appsetting.*.json
+*.user
+appsettings.json
