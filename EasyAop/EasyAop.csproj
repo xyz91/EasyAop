@@ -1,9 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net40;net45;net46;net472;netstandard2.0</TargetFrameworks>
     <Authors>sorvy</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.27</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="build\*\*" Pack="True" PackagePath="build" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="buildMultiTargeting\**" />
+    <EmbeddedResource Remove="buildMultiTargeting\**" />
+    <None Remove="buildMultiTargeting\**" />
+  </ItemGroup>
 
 </Project>

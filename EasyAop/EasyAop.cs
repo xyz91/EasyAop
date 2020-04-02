@@ -9,6 +9,11 @@ namespace EasyAop.Core
 {
     public class EasyAop
     {
+        /// <summary>
+        /// 修改dll中有注解为BaseAopAttribute的方法属性构造函数
+        /// </summary>
+        /// <param name="dllFilePath">dll路径</param>
+        /// <param name="outpath">查找引用dll的目录</param>
         public static void Work(string dllFilePath, string outpath)
         {
             try
@@ -98,8 +103,12 @@ namespace EasyAop.Core
             }
             catch (Exception e) { throw new Exception("result:" + e.Message + e.StackTrace); }
         }
+        /// <summary>
+        ///  修改dll中有注解为BaseAopAttribute的方法属性构造函数
+        /// </summary>
+        /// <param name="dllFilePath">dll路径，查找目录为当前目录或bin目录</param>
         public static void Work(string dllFilePath) {
-             Work(dllFilePath,null);
+             Work(dllFilePath,null);                               
         }
 
         private static bool CheckAttribute(TypeReference type)
@@ -118,6 +127,12 @@ namespace EasyAop.Core
             }
         }
 
+        /// <summary>
+        /// 修改dll里所有符合条件的方法
+        /// </summary>
+        /// <typeparam name="T">注入的方法类</typeparam>
+        /// <param name="dllFilePath">dll路径</param>
+        /// <param name="aoptype">修改方法的类型</param>
         public static void Work<T>(string dllFilePath, AopType aoptype)   where T:BaseAopAttribute,new()
         {
             using (AssemblyDefinition ass = AssemblyDefinition.ReadAssembly(dllFilePath)) {

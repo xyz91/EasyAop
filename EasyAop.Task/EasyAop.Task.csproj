@@ -7,7 +7,10 @@
     <Authors>sorvy</Authors>
     <Company>sorvy</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
   </PropertyGroup>
+
+
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.Build.Utilities.Core">
       <Version>[15.7.179,]</Version>
@@ -32,10 +35,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EasyAop" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="build\*\*" Pack="True" PackagePath="build" />
     <None Include="buildMultiTargeting\*\*" Pack="True" PackagePath="buildMultiTargeting" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EasyAop" Version="1.0.27" />
   </ItemGroup>
 </Project>
